@@ -11,10 +11,10 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 client = bigquery.Client(credentials=credentials)
 
 
-query = "SELECT SETTLEMENTDATE, Region, sum(SCADAVALUE) as Mw FROM `test-187010.ReportingDataset.today_Table` where now=1 group by 1,2"
+query = "SELECT AirportID, Name, City, Country, IATA, ICAO FROM `testing-bi-engine.test.airport` LIMIT 1000"
 query_job = client.query(query)
 rows = query_job.result()
 
 # Print results.
 for row in rows:
-    st.write(f"{row.Region} is in :{row.Mw}:")
+    st.write(f"{row.Name} is in :{row.Country}:")
