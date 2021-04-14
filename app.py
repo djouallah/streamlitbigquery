@@ -17,4 +17,4 @@ rows = query_job.result()
 
 # Print results.
 for row in rows:
-    st.write(f"{row.name} has a :{row.pet}:")
+    print("name={}, count={}".format(row[0], row["total_people"]))
