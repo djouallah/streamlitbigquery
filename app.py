@@ -17,4 +17,5 @@ rows = query_job.result()
 
 # Print results.
 for row in rows:
-    print("name={}, count={}".format(row[0], row["Country"]))
+    for row in rows:
+    st.write(f"{row.Name} is in :{row.Country}:")
