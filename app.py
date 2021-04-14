@@ -12,11 +12,11 @@ client = bigquery.Client(credentials=credentials)
 
 
 query = """
-    SELECT * FROM test-187010.ReportingDataset.today_Table  where now =1
+    SELECT AirportID, Name, City, Country, IATA, ICAO FROM `testing-bi-engine.test.airport` LIMIT 1000
 """
-query_job = client.query(query)  # Make an API request.
+query_job = client.query(query)
+rows = query_job.result()
 
-print("The query data:")
-for row in query_job:
-    # Row values can be accessed by field name or index.
-    print("name={}, count={}".format(row[0], row["total_people"]))
+# Print results.
+for row in rows:
+    st.write(f"{row.name} has a :{row.pet}:")
