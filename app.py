@@ -17,4 +17,4 @@ rows = query_job.result()
 
 # Print results.
 for row in rows:
-    print("name={}, count={}".format(row[0], row["total_people"]))
+    print("name={}, count={}".format(row[0], row["Country"]))
