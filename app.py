@@ -11,9 +11,7 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 client = bigquery.Client(credentials=credentials)
 
 
-query = """
-    SELECT AirportID, Name, City, Country, IATA, ICAO FROM `testing-bi-engine.test.airport` LIMIT 1000
-"""
+query = "SELECT AirportID, Name, City, Country, IATA, ICAO FROM `testing-bi-engine.test.airport` LIMIT 1000"
 query_job = client.query(query)
 rows = query_job.result()
 
