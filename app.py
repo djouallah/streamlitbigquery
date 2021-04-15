@@ -7,8 +7,7 @@ from google.oauth2 import service_account
 #refresh button
 col1, col2 = st.beta_columns([1, 1])
 col1.button("Refresh")
-col2.tmp_download_link = download_link(result, 'YOUR_DF.csv', 'Click here to download the data for today')
-st.markdown(tmp_download_link, unsafe_allow_html=True)
+
 
 # Retrieve and convert key file content.
 bigquery_key_json = json.loads(st.secrets["bigquery_key"], strict=False)
@@ -60,6 +59,7 @@ def download_link(object_to_download, download_filename, download_link_text):
 
 
 # Examples
-
+col2.tmp_download_link = download_link(result, 'YOUR_DF.csv', 'Click here to download the data for today')
+st.markdown(tmp_download_link, unsafe_allow_html=True)
 
 
