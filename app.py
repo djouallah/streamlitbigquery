@@ -13,10 +13,10 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 client = bigquery.Client(credentials=credentials)
 
 
-query = "SELECT SETTLEMENTDATE, Region, sum(SCADAVALUE) as Mw FROM `test-187010.ReportingDataset.today_Table` where now=1 group by 1,2"
+query = "SELECT SETTLEMENTDATE, Region, sum(SCADAVALUE) as Mw FROM `test-187010.ReportingDataset.today_Table`  group by 1,2"
 
 result = pd.read_gbq(query, credentials=credentials)
 
-c = alt.Chart(result).mark_circle().encode( x='Region', y='SETTLEMENTDATE', size='Mw', color='Mw', tooltip=['Region', 'Mw'])
+c = st.area_chart(result)
 
 st.write(c)
