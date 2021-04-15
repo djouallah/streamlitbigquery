@@ -39,7 +39,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
 st.write(c)
 result2=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
 
-c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
+c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                     y='RRP',
                                                      color=alt.condition(
                                                                  alt.datum.RRP > 0,
