@@ -30,10 +30,11 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     tooltip=['hourminute','Technology', 'Mw'],
                                                     
                                         ).properties(
-                                            width=800,
+                                            width=400,
                                             height=100
                                             ).facet(
-    row='Region:N',
+    facet='Region:N',
+  column=2
 ).resolve_scale(y='independent')
 st.write(c)
 result2=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
