@@ -16,6 +16,6 @@ column = result["SETTLEMENTDATE"]
 now = column.max()
 st.text("Nem Power Generation as of")
 st.write(now)
-c = alt.Chart(result).mark_area().encode(  x='SETTLEMENTDATE', y='Mw',color='Region', tooltip=['Region', 'Mw'])
+c = alt.Chart(result).mark_area().encode(  x='SETTLEMENTDATE', y='Mw',color='Region', tooltip=['SETTLEMENTDATE','Region', 'Mw'])
 st.write(c)
 st.write(result)
