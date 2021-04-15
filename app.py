@@ -5,7 +5,7 @@ import altair as alt
 from google.cloud import bigquery
 from google.oauth2 import service_account
 #refresh button
-col1, col2 = st.beta_columns([2, 1])
+col1, col2 = st.beta_columns([3, 1])
 col1.button("Refresh")
 
 
