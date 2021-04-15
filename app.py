@@ -38,7 +38,6 @@ result2=result.groupby(['hourminute'])['RRP'].min().reset_index()
 c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
                                                     y='sum(Mw):Q',
                                                     tooltip=['hourminute','RRP']
-                                                    )
                                         ).properties(
                                             width=800,
                                             height=300
