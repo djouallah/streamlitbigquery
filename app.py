@@ -1,9 +1,30 @@
-import json
+import json,time,numpy as np
 import streamlit as st
 import pandas as pd
 import altair as alt
 from google.cloud import bigquery
 from google.oauth2 import service_account
+#refresh button
+progress_bar = st.sidebar.progress(0)
+status_text = st.sidebar.empty()
+last_rows = np.random.randn(1, 1)
+chart = st.line_chart(last_rows)
+
+for i in range(1, 101):
+    new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+    status_text.text("%i%% Complete" % i)
+    chart.add_rows(new_rows)
+    progress_bar.progress(i)
+    last_rows = new_rows
+    time.sleep(0.05)
+
+progress_bar.empty()
+
+# Streamlit widgets automatically run the script from top to bottom. Since
+# this button is not connected to any other logic, it just causes a plain
+# rerun.
+st.button("Re-run")
+
 # Retrieve and convert key file content.
 bigquery_key_json = json.loads(st.secrets["bigquery_key"], strict=False)
 credentials = service_account.Credentials.from_service_account_info(bigquery_key_json)
