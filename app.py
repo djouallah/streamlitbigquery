@@ -48,10 +48,11 @@ c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
                                                                  
                                                     tooltip=['hourminute','RRP']
                                         ).properties(
-                                            width=800,
+                                            width=400,
                                             height=100
                                             ).facet(
-    row='Region:N',
+    facet='Region:N',
+  columns=2
 ).resolve_scale(y='independent')
 st.write(c)
 #st.write(result)
