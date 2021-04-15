@@ -1,4 +1,4 @@
-import json,time,numpy as np
+import json,time,numpy as np,base64
 import streamlit as st
 import pandas as pd
 import altair as alt
