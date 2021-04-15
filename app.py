@@ -14,8 +14,6 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 client = bigquery.Client(credentials=credentials)
 query = "SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4"
 result = pd.read_gbq(query, credentials=credentials)
-@st.cache
-
 # now have a DF result do stuff with it
 column = result["hourminute"]
 now = column.max()
