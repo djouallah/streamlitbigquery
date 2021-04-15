@@ -19,6 +19,6 @@ st.write(now)
 c = alt.Chart(result).mark_area().encode(  x=alt.X('hourminute', axis=alt.Axis(labels=False)), y='Mw',color='Region', tooltip=['hourminute','Region', 'Mw']).properties(
     width=800,
     height=300
-)
+).interactive()
 st.write(c)
 st.write(result)
