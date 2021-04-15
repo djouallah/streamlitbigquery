@@ -33,6 +33,17 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                             height=300
                                             ).add_selection(selection)
 st.write(c)
+result2=result.groupby(['hourminute'])['RRP'].min().reset_index()
+
+c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
+                                                    y='sum(Mw):Q',
+                                                    tooltip=['hourminute','RRP']
+                                                    )
+                                        ).properties(
+                                            width=800,
+                                            height=300
+                                            )
+st.write(c)
 #st.write(result)
 
 #download
