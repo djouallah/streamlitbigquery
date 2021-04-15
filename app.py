@@ -19,8 +19,8 @@ result = pd.read_gbq(query, credentials=credentials)
 # now have a DF result do stuff with it
 column = result["hourminute"]
 now = column.max()
-st.subheader("Nem Power Generation as of")
-st.write(now)
+st.subheader("Nem Power Generation" + now)
+#st.write(now)
 result2=result.groupby(['hourminute','Technology'])['Mw'].sum().reset_index()
 selection = alt.selection_multi(fields=['Technology'], bind='legend')
 c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
