@@ -16,6 +16,9 @@ column = result["hourminute"]
 now = column.max()
 st.text("Nem Power Generation as of")
 st.write(now)
-c = alt.Chart(result).mark_area().encode(  x='hourminute', y='Mw',color='Region', tooltip=['hourminute','Region', 'Mw'])
+c = alt.Chart(result).mark_area().encode(  x='hourminute', y='Mw',color='Region', tooltip=['hourminute','Region', 'Mw']).properties(
+    width=800,
+    height=300
+)
 st.write(c)
 st.write(result)
