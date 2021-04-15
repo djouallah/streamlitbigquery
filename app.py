@@ -17,6 +17,10 @@ query = "SELECT SETTLEMENTDATE, Region, sum(SCADAVALUE) as Mw FROM `test-187010.
 
 result = pd.read_gbq(query, credentials=credentials)
 
+column = result["SETTLEMENTDATE"]
+now = column.max()
+st.write(now)
+
 c = alt.Chart(result).mark_area().encode(  x='SETTLEMENTDATE', y='Mw',color='Region', tooltip=['Region', 'Mw'])
 
 st.write(c)
