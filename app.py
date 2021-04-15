@@ -33,7 +33,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                             height=300
                                             ).add_selection(selection)
 st.write(c)
-result2=result.groupby(['hourminute'])['RRP'].mean().reset_index()
+result2=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
 
 c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
                                                     y='RRP',
@@ -41,6 +41,7 @@ c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
                                                                  alt.datum.RRP > 0,
                                                                  alt.value("steelblue"),  # The positive color
                                                                  alt.value("red")),  # The negative color
+                                                                 column='Region:N',
                                                     tooltip=['hourminute','RRP']
                                         ).properties(
                                             width=800,
