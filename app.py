@@ -21,7 +21,7 @@ st.text("Nem Power Generation as of")
 st.write(now)
 result2=result.groupby(['hourminute','Technology'])['Mw'].sum().reset_index()
 selection = alt.selection_multi(fields=['Technology'], bind='legend')
-c = alt.Chart(result).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
+c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
                                                     y='sum(Mw):Q',
                                                     color='Technology',
                                                     tooltip=['hourminute','Technology', 'Mw'],
