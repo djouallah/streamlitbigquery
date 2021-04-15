@@ -30,7 +30,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     
                                         ).properties(
                                             width=800,
-                                            height=300
+                                            height=100
                                             ).facet(
     row='Region:N',
 ).resolve_scale(y='independent')
@@ -47,7 +47,7 @@ c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
                                                     tooltip=['hourminute','RRP']
                                         ).properties(
                                             width=800,
-                                            height=300
+                                            height=100
                                             ).facet(
     row='Region:N',
 ).resolve_scale(y='independent')
