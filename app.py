@@ -20,3 +20,5 @@ result = pd.read_gbq(query, credentials=credentials)
 c = alt.Chart(result).mark_area().encode(  x='SETTLEMENTDATE', y='Mw',color='Region', tooltip=['Region', 'Mw'])
 
 st.write(c)
+st.write(result)
+
