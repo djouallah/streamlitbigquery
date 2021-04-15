@@ -12,7 +12,7 @@ bigquery_key_json = json.loads(st.secrets["bigquery_key"], strict=False)
 credentials = service_account.Credentials.from_service_account_info(bigquery_key_json)
 # Create API client.
 client = bigquery.Client(credentials=credentials)
-query = "SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4"
+query = "SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw,min(RRP) as RRP FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4"
 result = pd.read_gbq(query, credentials=credentials)
 # now have a DF result do stuff with it
 column = result["hourminute"]
@@ -57,7 +57,7 @@ def download_link(object_to_download, download_filename, download_link_text):
 
 
 # Examples
-tmp_download_link = download_link(result, 'YOUR_DF.csv', 'Click here to download your data!')
+tmp_download_link = download_link(result, 'YOUR_DF.csv', 'Click here to download the data for today')
 st.markdown(tmp_download_link, unsafe_allow_html=True)
 
 
