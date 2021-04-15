@@ -20,7 +20,7 @@ now = column.max()
 st.text("Nem Power Generation as of")
 st.write(now)
 selection = alt.selection_multi(fields=['Technology'], bind='legend')
-c = alt.Chart(result).mark_area().encode(  x=alt.X('hourminute',axis=alt.Axis(labels=False)),
+c = alt.Chart(result).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
                                                     y='sum(Mw):Q',
                                                     color='Technology',
                                                     tooltip=['hourminute','Technology', 'Mw'],
