@@ -29,7 +29,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     color=alt.Color('Technology',
                                                     scale=alt.Scale(
                                                     domain=['Coal', 'Renewable'],
-                                                     range=['Black', 'green']))),
+                                                     range=['Black', 'green'])),
                                                     tooltip=['hourminute','Technology', 'Mw'],
                                                     
                                         ).properties(
