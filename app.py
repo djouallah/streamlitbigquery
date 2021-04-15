@@ -26,7 +26,10 @@ result2=result.groupby(['hourminute','Technology','Region'])['Mw'].sum().reset_i
 selection = alt.selection_multi(fields=['Technology'], bind='legend')
 c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                     y='sum(Mw):Q',
-                                                    color='Technology',
+                                                    color=alt.Color('Technology',
+                                                    scale=alt.Scale(
+                                                    domain=['Coal', 'Renewable'],
+                                                     range=['Black', 'green']))),
                                                     tooltip=['hourminute','Technology', 'Mw'],
                                                     
                                         ).properties(
