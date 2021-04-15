@@ -28,8 +28,8 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     y='sum(Mw):Q',
                                                     color=alt.Color('Technology',
                                                     scale=alt.Scale(
-                                                    domain=['Coal', 'Renewable'],
-                                                     range=['Black', 'green'])),
+                                                    domain=['Coal', 'Renewable','Rooftop','Gas','Fuel'],
+                                                     range=['Black', 'green','yellow','red','gray'])),
                                                     tooltip=['hourminute','Technology', 'Mw'],
                                                     
                                         ).properties(
