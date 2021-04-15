@@ -31,7 +31,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                             height=300
                                             ).add_selection(selection)
 st.write(c)
-st.write(result)
+#st.write(result)
 
 #download
 def download_link(object_to_download, download_filename, download_link_text):
