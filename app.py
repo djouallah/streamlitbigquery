@@ -41,12 +41,14 @@ c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
                                                                  alt.datum.RRP > 0,
                                                                  alt.value("steelblue"),  # The positive color
                                                                  alt.value("red")),  # The negative color
-                                                                 row='Region:N',
+                                                                 
                                                     tooltip=['hourminute','RRP']
                                         ).properties(
                                             width=800,
                                             height=300
-                                            )
+                                            ).facet(
+    row='Region:N',
+).resolve_scale(y='independent')
 st.write(c)
 #st.write(result)
 
