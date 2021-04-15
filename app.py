@@ -19,7 +19,7 @@ result = pd.read_gbq(query, credentials=credentials)
 
 column = result["SETTLEMENTDATE"]
 now = column.max()
-streamlit.text("Nem Power Generation as of")
+st.text("Nem Power Generation as of")
 st.write(now)
 
 c = alt.Chart(result).mark_area().encode(  x='SETTLEMENTDATE', y='Mw',color='Region', tooltip=['Region', 'Mw'])
