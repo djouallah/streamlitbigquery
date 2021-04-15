@@ -7,7 +7,7 @@ from google.oauth2 import service_account
 #refresh button
 col1, col2 = st.beta_columns([3, 1])
 col1.button("Refresh")
-col2.markdown(tmp_download_link, unsafe_allow_html=True)
+
 
 
 # Retrieve and convert key file content.
@@ -35,7 +35,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                             ).facet(
     row='Region:N',
 ).resolve_scale(y='independent')
-col1.write(c)
+st.write(c)
 result2=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
 
 c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False)),
@@ -52,7 +52,7 @@ c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
                                             ).facet(
     row='Region:N',
 ).resolve_scale(y='independent')
-col2.write(c)
+st.write(c)
 #st.write(result)
 
 #download
@@ -80,6 +80,7 @@ def download_link(object_to_download, download_filename, download_link_text):
 
 # Examples
 tmp_download_link = download_link(result, 'YOUR_DF.csv', 'Export RAW Data')
+col2.markdown(tmp_download_link, unsafe_allow_html=True)
 
 
 
