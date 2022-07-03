@@ -89,5 +89,6 @@ col2.download_button(
      mime='text/csv',
  )
 
-
+link='[Blog](https://datamonkeysite.com/2022/06/28/using-delta-lake-with-python/)'
+col1.markdown(link,unsafe_allow_html=True)
 
