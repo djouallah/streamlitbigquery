@@ -11,6 +11,7 @@ st.set_page_config(
     layout="wide",
 )
 
+st.title("Example of using BigQuery and Streamlit")
 #refresh button
 col1, col2 = st.columns([3, 1])
 col1.button("Refresh")
