@@ -4,6 +4,13 @@ import pandas as pd
 import altair as alt
 from google.cloud import bigquery
 from google.oauth2 import service_account
+
+st.set_page_config(
+    page_title="Example of BigQuery and Streamlit",
+    page_icon="✅",
+    layout="wide",
+)
+
 #refresh button
 col1, col2 = st.columns([3, 1])
 col1.button("Refresh")
