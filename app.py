@@ -17,9 +17,9 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 client = bigquery.Client(credentials=credentials)
 query = "SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw,min(RRP) as RRP FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4"
 @st.experimental_memo(ttl=600)
-def read_bq():
-    pd.read_gbq(query, credentials=credentials)
-result = read_bq()
+def read_bq(query, _credentials):
+    pd.read_gbq(query, credentials=_credentials)
+result = read_bq(query,credentials)
 # now have a DF result do stuff with it
 column = result["hourminute"]
 now = column.max()
