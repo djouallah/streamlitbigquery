@@ -16,7 +16,7 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 # Create API client.
 client = bigquery.Client(credentials=credentials)
 query = "SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw,min(RRP) as RRP FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4"
-@st.experimental_memo(ttl=600)
+#@st.experimental_memo(ttl=600)
 def read_bq(query):
     pd.read_gbq(query)
 result = read_bq(query)
