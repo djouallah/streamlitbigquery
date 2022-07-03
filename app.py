@@ -15,7 +15,9 @@ bigquery_key_json = json.loads(st.secrets["bigquery_key"], strict=False)
 credentials = service_account.Credentials.from_service_account_info(bigquery_key_json)
 # Create API client.
 client = bigquery.Client(credentials=credentials)
-query = "SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw,min(RRP) as RRP FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4"
+query = '''--Streamlit 
+        SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw,min(RRP) as RRP
+        FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4'''
 
 # now have a DF result do stuff with it
 result = pd.read_gbq(query,credentials=credentials)
