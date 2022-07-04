@@ -54,9 +54,9 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
   columns=2
 ).resolve_scale(y='independent')
 st.write(c)
-result2=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
+result3=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
 
-c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
+c = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                     y='RRP',
                                                      color=alt.condition(
                                                                  alt.datum.RRP > 0,
@@ -72,7 +72,7 @@ c = alt.Chart(result2).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
   columns=2
 ).resolve_scale(y='independent')
 st.write(c)
-#st.write(result)
+st.table(result2)
 
 #Download Button
 
