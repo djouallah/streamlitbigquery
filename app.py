@@ -72,7 +72,7 @@ c = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
   columns=2
 ).resolve_scale(y='independent')
 st.write(c)
-st.table(result2)
+#st.table(result2)
 
 #Download Button
 
