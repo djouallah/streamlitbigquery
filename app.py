@@ -1,6 +1,5 @@
 import json
 import streamlit as st
-from streamlit_autorefresh import st_autorefresh
 import pandas as pd
 import altair as alt
 from google.cloud import bigquery
@@ -15,9 +14,9 @@ st.set_page_config(
                   )
 
 st.title("POC using BigQuery as DWH and DuckDB for Local in-Memory Cache")
-#refresh button
+st.write('a SQL Query get data from BigQuery then insert it to a local DuckDB DB')
 col1, col2 = st.columns([3, 1])
-st_autorefresh(interval=4 * 60 * 1000, key="dataframerefresh")
+
 try:
    con = duckdb.connect(database='db.duckdb',read_only=True)
 except :
