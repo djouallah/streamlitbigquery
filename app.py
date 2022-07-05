@@ -103,7 +103,7 @@ credentials = service_account.Credentials.from_service_account_info(bigquery_key
 client = bigquery.Client(credentials=credentials)
 query = '''--Streamlit 
         SELECT hourminute,StationName,Region, Technology, sum(SCADAVALUE) as Mw,min(RRP) as RRP
-        FROM `test-187010.ReportingDataset.today_Table`  where cast( hourminute as integer) > '''+ str(now) +''' group by 1,2,3,4'''
+        FROM `test-187010.ReportingDataset.today_Table` group by 1,2,3,4'''
 
 # Query BgQuery
 
@@ -115,4 +115,4 @@ def Get_Bq(query,_cred) :
 #import Data into DuckDB
 result = Get_Bq(query,credentials)
 con1 = duckdb.connect(database='db.duckdb')
-con1.execute("insert into my_table SELECT * FROM result").close()
+con1.execute("create or replace table my_table as SELECT * FROM result").close()
