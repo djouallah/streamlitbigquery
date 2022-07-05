@@ -1,4 +1,4 @@
-import json,time,numpy as np,base64
+import json
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -8,12 +8,12 @@ import duckdb
 
 
 st.set_page_config(
-    page_title="Example of BigQuery and Streamlit",
+    page_title="Example of BigQuery and DuckDB for Local Cache",
     page_icon="✅",
     layout="wide",
-)
+                  )
 
-st.title("Example of using BigQuery and Streamlit")
+st.title("Example of using BigQuery and DuckDB for Local Cache")
 #refresh button
 col1, col2 = st.columns([3, 1])
 col1.button("Refresh")
