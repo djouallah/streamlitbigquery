@@ -28,7 +28,7 @@ query = '''--Streamlit
         FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4'''
 
 # now have a DF result do stuff with it
-@st.experimental_memo
+@st.experimental_memo(ttl=300)
 def Get_Bq(query,_cred) :
         df=pd.read_gbq(query,credentials=_cred)
         return df
