@@ -29,7 +29,7 @@ query = '''--Streamlit
 
 # now have a DF result do stuff with it
 @st.experimental_memo
-Def Get_Bq(query,_cred) :
+def Get_Bq(query,_cred) :
         df=pd.read_gbq(query,credentials=_cred)
         return df
 
