@@ -1,5 +1,6 @@
 import json
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
 import pandas as pd
 import altair as alt
 from google.cloud import bigquery
@@ -8,15 +9,15 @@ import duckdb
 
 
 st.set_page_config(
-    page_title="Example of BigQuery and DuckDB for Local Cache",
+    page_title="Example of using BigQuery as DWH and DuckDB for Local in-Memory Cache",
     page_icon="✅",
     layout="wide",
                   )
 
-st.title("Example of using BigQuery and DuckDB for Local Cache")
+st.title("POC using BigQuery as DWH and DuckDB for Local in-Memory Cache")
 #refresh button
 col1, col2 = st.columns([3, 1])
-col1.button("Refresh")
+st_autorefresh(interval=4 * 60 * 1000, key="dataframerefresh")
 try:
    con = duckdb.connect(database='db.duckdb',read_only=True)
 except :
@@ -106,6 +107,7 @@ query = '''--Streamlit
         FROM `test-187010.ReportingDataset.today_Table`  where cast( hourminute as integer) > '''+ str(now) +''' group by 1,2,3,4'''
 
 # Query BgQuery
+
 @st.experimental_memo(ttl=300)
 def Get_Bq(query,_cred) :
         df=pd.read_gbq(query,credentials=_cred)
