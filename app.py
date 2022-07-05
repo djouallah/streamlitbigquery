@@ -28,9 +28,12 @@ query = '''--Streamlit
         FROM `test-187010.ReportingDataset.today_Table`  group by 1,2,3,4'''
 
 # now have a DF result do stuff with it
-result = pd.read_gbq(query,credentials=credentials)
+@st.experimental_memo
+  Def Get_Bq(query,_cred) :
+        df=pd.read_gbq(query,credentials=_cred)
+        return df
 
-
+result = Get_Bq(query,credentials)
 
 column = result["hourminute"]
 now = column.max()
