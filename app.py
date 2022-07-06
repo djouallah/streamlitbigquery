@@ -50,6 +50,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     domain=['Coal', 'Renewable','Rooftop','Gas','Fuel'],
                                                      range=['Black', 'green','red','yellow','gray'])),
                                                     tooltip=['hourminute','Technology', 'Mw'],
+                                                    opacity=alt.condition(selection, alt.value(1), alt.value(0.2))
                                                     
                                         ).properties(
                                             width=400,
