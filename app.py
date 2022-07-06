@@ -29,7 +29,7 @@ def Get_Bq(query,_cred) :
 #import Data into DuckDB
 result = Get_Bq(query,credentials)
 con1 = duckdb.connect(database='db.duckdb')
-#current using rewrite by default but can use incremental refresh if required, although it will become slightly more complex
+#current using Overwrite by default but can use incremental refresh if required, although it will become slightly more complex
 con1.execute("create or replace table my_table as SELECT * FROM result").close()'''
 st.code(code, language='python')
 
