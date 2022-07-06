@@ -18,7 +18,7 @@ st.set_page_config(
      a SQL Query get data from BigQuery then insert it to a local DuckDB DB'), [About](https://datamonkeysite.com/category/streamlit/)
       
 """
-with st.expander("Explanation"):
+with st.expander("Code"):
      "# here is the interesting bit of the code, full code in [Github](https://datamonkeysite.com/category/streamlit/)"
      code = '''
      #Cache the data for 5 minutes, the Function will not send queries even when you open the app again
