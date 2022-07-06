@@ -57,7 +57,9 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                             ).facet(
     facet='Region:N',
   columns=2
-).resolve_scale(y='independent')
+).resolve_scale(y='independent').add_selection(
+    selection
+)
 st.write(c)
 result3=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
 
