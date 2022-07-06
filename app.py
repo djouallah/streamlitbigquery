@@ -19,7 +19,7 @@ st.set_page_config(
       
 """
 with st.expander("Explanation"):
-     "#here is the interesting bit of the code, full code in [Github](https://datamonkeysite.com/category/streamlit/)"
+     "# here is the interesting bit of the code, full code in [Github](https://datamonkeysite.com/category/streamlit/)"
      code = '''
      #Cache the data for 5 minutes, the Function will not send queries even when you open the app again
      @st.experimental_memo(ttl=600)
