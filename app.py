@@ -18,20 +18,20 @@ st.set_page_config(
      a SQL Query get data from BigQuery then insert it to a local DuckDB DB'), [Blog](https://datamonkeysite.com/category/streamlit/)
       
 """
-
-code = '''
-#here is the interesting bit of the code
-#Cache the data for 5 minutes, the Function will not send queries even when you open the app again
-@st.experimental_memo(ttl=600)
-def Get_Bq(query,_cred) :
+with st.expander("Date Distribution"):
+     code = '''
+     #here is the interesting bit of the code
+     #Cache the data for 5 minutes, the Function will not send queries even when you open the app again
+     @st.experimental_memo(ttl=600)
+     def Get_Bq(query,_cred) :
         df=pd.read_gbq(query,credentials=_cred)
         return df
-#import Data into DuckDB
-result = Get_Bq(query,credentials)
-con1 = duckdb.connect(database='db.duckdb')
-#current using Overwrite by default but can use incremental refresh if required, although it will become slightly more complex
-con1.execute("create or replace table my_table as SELECT * FROM result").close()'''
-st.code(code, language='python')
+     #import Data into DuckDB
+     result = Get_Bq(query,credentials)
+     con1 = duckdb.connect(database='db.duckdb')
+     #current using Overwrite by default but can use incremental refresh if required, although it will become slightly more complex
+     con1.execute("create or replace table my_table as SELECT * FROM result").close()'''
+     st.code(code, language='python')
 
 
 col1, col2 = st.columns([3, 1])
