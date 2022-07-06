@@ -15,7 +15,7 @@ st.set_page_config(
 
 "# POC using BigQuery as DWH and DuckDB for Local in-Memory Cache"
 """
-     a SQL Query get data from BigQuery then insert it to a local DuckDB DB'), [About](https://datamonkeysite.com/category/streamlit/)
+     a SQL Query get data from BigQuery then insert it to a local DuckDB DB'),                      [About](https://datamonkeysite.com/category/streamlit/)
       
 """
 with st.expander("Code"):
