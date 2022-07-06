@@ -13,8 +13,11 @@ st.set_page_config(
     layout="wide",
                   )
 
-st.title("POC using BigQuery as DWH and DuckDB for Local in-Memory Cache")
-st.write('a SQL Query get data from BigQuery then insert it to a local DuckDB DB')
+" #POC using BigQuery as DWH and DuckDB for Local in-Memory Cache"
+"""
+     a SQL Query get data from BigQuery then insert it to a local DuckDB DB')
+"""
+
 col1, col2 = st.columns([3, 1])
 
 try:
