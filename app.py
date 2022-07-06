@@ -15,12 +15,12 @@ st.set_page_config(
 
 "# POC using BigQuery as DWH and DuckDB for Local in-Memory Cache"
 """
-     a SQL Query get data from BigQuery then insert it to a local DuckDB DB'), [Blog](https://datamonkeysite.com/category/streamlit/)
+     a SQL Query get data from BigQuery then insert it to a local DuckDB DB'), [About](https://datamonkeysite.com/category/streamlit/)
       
 """
-with st.expander("Date Distribution"):
+with st.expander("Explanation"):
      code = '''
-     #here is the interesting bit of the code
+     #here is the interesting bit of the code, full code in [Github](https://datamonkeysite.com/category/streamlit/)
      #Cache the data for 5 minutes, the Function will not send queries even when you open the app again
      @st.experimental_memo(ttl=600)
      def Get_Bq(query,_cred) :
