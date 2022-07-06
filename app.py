@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide",
                   )
 
-" #POC using BigQuery as DWH and DuckDB for Local in-Memory Cache"
+"# POC using BigQuery as DWH and DuckDB for Local in-Memory Cache"
 """
      a SQL Query get data from BigQuery then insert it to a local DuckDB DB')
 """
