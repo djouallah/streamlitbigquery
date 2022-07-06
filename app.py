@@ -94,8 +94,7 @@ col2.download_button(
      mime='text/csv',
  )
 
-link='[Blog](https://datamonkeysite.com/category/streamlit/)'
-col1.markdown(link,unsafe_allow_html=True)
+
 
 
 ################################################### Download Data from BigQuery#####################################################
