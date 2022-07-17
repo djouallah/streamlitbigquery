@@ -43,8 +43,11 @@ option = st.multiselect('Select Stations',StationName['StationName'])
    
 xxxx = "','".join(option)
         
-option = (f'''('{xxxx}')''')
-Query = '''select * from read_parquet('data.parquet') where  StationName in '''+str(option)
+select = (f'''('{xxxx}')''')
+if len(option) == 0 : 
+     Query = '''select * from read_parquet('data.parquet')  '''
+else :
+     Query = '''select * from read_parquet('data.parquet') where  StationName in '''+str(select)
         #st.write(Query)
 con = duckdb.connect()
 result =con.execute(Query).fetchdf()
