@@ -113,7 +113,7 @@ query2 = '''--Streamlit
 
 # Query BgQuery
 
-@st.experimental_memo(ttl=3000)
+#@st.experimental_memo(ttl=300)
 def Get_Bq(query,_cred) :
         df=pd.read_gbq(query,credentials=_cred)
         return df
