@@ -112,7 +112,12 @@ col2.download_button(
 
 link='[Blog](https://datamonkeysite.com/category/streamlit/)'
 col1.markdown(link,unsafe_allow_html=True)
-
+with st.expander("See explanation"):
+     st.write("""
+         The chart above shows some numbers I picked for you.
+         I rolled actual dice for these, so they're *guaranteed* to
+         be random.
+     """)
 
 ################## refresh data every 5 minutes 
 st_autorefresh(interval=4 * 60 * 1000, key="dataframerefresh")
