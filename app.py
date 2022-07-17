@@ -78,7 +78,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     height=100
                                                     ).facet(
                                                     facet='StationName:N',
-                                                columns=2
+                                                columns=4
                                                                     ).resolve_scale(y='independent')
 st.write(c)
 
@@ -97,7 +97,7 @@ c = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis(
                                                     height=100
                                                     ).facet(
                                                     facet='Region:N',
-                                                        columns=2
+                                                        columns=4
                                                                 ).resolve_scale(y='independent')
 st.write(c)
 
