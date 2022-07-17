@@ -9,12 +9,12 @@ import duckdb
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Example of using BigQuery as DWH and DuckDB for Local in-Memory Cache",
+    page_title="Using DuckDB for Local in-Memory Cache",
     page_icon="✅",
     layout="wide",
                   )
 
-st.title("POC using BigQuery as DWH and DuckDB for Local in-Memory Cache")
+st.title("Using DuckDB for Local in-Memory Cache")
 #refresh button
 col1, col2 = st.columns([3, 1])
 
