@@ -9,21 +9,14 @@ import duckdb
 from pathlib import Path
 
 st.set_page_config(
-    page_title="Using DuckDB for Local in-Memory Cache",
+    page_title="Australia Electricity Market Dashboard",
     page_icon="✅",
     layout="wide",
                   )
 
-st.title("Using DuckDB for Local in-Memory Cache")
+st.title("Australia Electricity Market Dashboard")
 #refresh button
 col1, col2 = st.columns([3, 1])
-
-with st.expander("See explanation"):
-     st.write("""
-         Data is loaded from External Data Source and Cached as a parquet file, it is refreshed every 5 minutes, the local Interaction
-         use DuckDB for calculation, it is faster as there is no network latency and cost less as the Source system is not used.
-         Basically this is How PowerBI import and Tableau extract Works.
-     """)
 
 ################################################### Download Data from BigQuery#####################################################
 # Retrieve and convert key file content.
