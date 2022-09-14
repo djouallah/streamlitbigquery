@@ -100,9 +100,10 @@ c1 = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                         columns=4
                                                                 ).resolve_scale(y='independent')
 st.write(c1)
-st.write(c)
+if len(option) != 0 : 
+     st.write(c)
 
-        #Download Button
+#Download Button
 
 
 def convert_df(df):
