@@ -74,6 +74,24 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                 columns=4
                                                                     ).resolve_scale(y='independent')
 
+c2 = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
+                                                            y='sum(Mw):Q',
+                                                            color=alt.Color('Region'),
+                                                            
+                                                            
+                                                            
+                                                            tooltip=['hourminute','Region', 'Mw'],
+                                                            
+                                                ).properties(
+                                                    width=350,
+                                                    height=100
+                                                    ).facet(
+                                                    facet='Region:N',
+                                                columns=4
+                                                                    ).resolve_scale(y='independent')
+
+
+
 
 result3=result.groupby(['hourminute','Region'])['RRP'].mean().reset_index()
 
@@ -93,6 +111,7 @@ c1 = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                         columns=4
                                                                 ).resolve_scale(y='independent')
 st.write(c1)
+st.write(c2)
 if len(option) != 0 : 
      st.write(c)
 
