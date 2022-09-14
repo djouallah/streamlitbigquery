@@ -67,7 +67,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                             tooltip=['hourminute','StationName', 'Mw'],
                                                             
                                                 ).properties(
-                                                    width=350,
+                                                    width=300,
                                                     height=100
                                                     ).facet(
                                                     facet='StationName:N',
@@ -81,7 +81,7 @@ c2 = alt.Chart(xxx).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(la
                                                             tooltip=['hourminute','Region', 'Mw'],
                                                             
                                                 ).properties(
-                                                    width=350,
+                                                    width=300,
                                                     height=100
                                                     ).facet(
                                                     facet='Region:N',
@@ -102,11 +102,11 @@ c1 = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                                         
                                                             tooltip=['hourminute','RRP']
                                                 ).properties(
-                                                    width=350,
+                                                    width=300,
                                                     height=100
                                                     ).facet(
                                                     facet='Region:N',
-                                                        columns=4
+                                                        columns=5
                                                                 ).resolve_scale(y='independent')
 st.write(c1)
 st.write(c2)
