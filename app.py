@@ -76,10 +76,6 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
 
 c2 = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                             y='sum(Mw):Q',
-                                                            color=alt.Color('Region'),
-                                                            
-                                                            
-                                                            
                                                             tooltip=['hourminute','Region', 'Mw'],
                                                             
                                                 ).properties(
