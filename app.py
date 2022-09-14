@@ -67,7 +67,7 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                             tooltip=['hourminute','StationName', 'Mw'],
                                                             
                                                 ).properties(
-                                                    width=300,
+                                                    width=250,
                                                     height=100
                                                     ).facet(
                                                     facet='StationName:N',
@@ -81,7 +81,7 @@ c2 = alt.Chart(xxx).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(la
                                                             tooltip=['hourminute','Region', 'Mw'],
                                                             
                                                 ).properties(
-                                                    width=300,
+                                                    width=250,
                                                     height=100
                                                     ).facet(
                                                     facet='Region:N',
@@ -102,7 +102,7 @@ c1 = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                                         
                                                             tooltip=['hourminute','RRP']
                                                 ).properties(
-                                                    width=300,
+                                                    width=250,
                                                     height=100
                                                     ).facet(
                                                     facet='Region:N',
