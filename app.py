@@ -108,10 +108,14 @@ c1 = alt.Chart(result3).mark_bar().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     facet='Region:N',
                                                         columns=5
                                                                 ).resolve_scale(y='independent')
-st.write(c1)
-st.write(c2)
+
 if len(option) != 0 : 
+     st.write(c1)
      st.write(c)
+else :
+    st.write(c1)
+    st.write(c2)
+    
 
 #Download Button
 
