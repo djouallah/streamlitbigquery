@@ -75,8 +75,9 @@ c = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                                     ).resolve_scale(y='independent')
 
 xxx=result.groupby(['hourminute','Region'])['Mw'].sum().reset_index()
-c2 = alt.Chart(xx).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
+c2 = alt.Chart(xxx).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                             y='sum(Mw):Q',
+                                                            color=alt.Color('Region'),
                                                             tooltip=['hourminute','Region', 'Mw'],
                                                             
                                                 ).properties(
