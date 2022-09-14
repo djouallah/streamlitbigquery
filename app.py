@@ -68,10 +68,10 @@ c = alt.Chart(result1).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis
                                                     columns=5
                                                                     ).resolve_scale(y='independent')
 
-result2=con.execute('select hourminute,Region, sum (Mw) as Mw from result group by all').df()
+result2=con.execute('select hourminute,Region,Technology, sum (Mw) as Mw from result group by all').df()
 c2 = alt.Chart(result2).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                             y='sum(Mw):Q',
-                                                            color=alt.Color('Region'),
+                                                            color=alt.Color('Technology'),
                                                             tooltip=['hourminute','Region', 'Mw'],
                                                             
                                                 ).properties(
