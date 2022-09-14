@@ -53,11 +53,11 @@ now = con.execute('''select strftime(max(SETTLEMENTDATE), '%A, %-d %B %Y - %I:%M
 now = now[['SETTLEMENTDATE']].values[0][0]
 
 st.subheader( str(now))
-result1=  con.execute('select hourminute,StationName,Region, sum (Mw) as Mw from result group by all').df()
+result1=  con.execute('select hourminute,StationName,Region,Technology, sum (Mw) as Mw from result group by all').df()
 selection = alt.selection_multi(fields=['StationName'], bind='legend')
 c = alt.Chart(result1).mark_area().encode(  x=alt.X('hourminute:O',axis=alt.Axis(labels=False,ticks=False)),
                                                             y='sum(Mw):Q',
-                                                            color=alt.Color('StationName'),
+                                                            color=alt.Color('Technology'),
                                                             tooltip=['hourminute','StationName', 'Mw'],
                                                             
                                                 ).properties(
